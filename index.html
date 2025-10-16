@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-сайт студента-разработчика</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">
+  <div class="header__logo-text">
+    <img src="images/logo.gif" alt="Логотип" class="header__logo">
+    <span class="header__name">Шаломеенко Анастасия</span>
+  </div>
+</div>
+        
+        <div class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <!-- Профиль -->
+<div class="profile" id="profile">
+    <h1 class="profile__title">Информация об авторе</h1>
+    <div class="profile__divider"></div>
+
+    <!-- Контейнер для GIF и описания в строку -->
+    <div class="profile__row">
+        <div class="profile__header-gif">
+            <img src="images/twitter-header.gif" alt="Анимированный баннер">
+        </div>
+        <div class="profile__details-wrapper">
+            <div class="profile__details">
+                <div class="profile__text">
+    <p class="profile__description">Я студентка группы ЭФБО-04-24 Института перспективных технологий и индустриального программирования, обучающаяся по направлению «фуллстек-разработка».</p>
+    <br>
+    <a href="assets/resume.pdf" download="resume.pdf" class="profile__resume-link">[ Скачать резюме ]</a>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Обо мне -->
+            <div class="about-me">
+                 <div class="about-me-title-wrapper">
+    <h2 class="about-me__title"><b>МОИ НАВЫКИ</b></h2></div>
+
+    <!-- Навыки внутри "Обо мне" -->
+    <div class="about-me__skills">
+        <div class="skill-item">
+            <img src="images/skills-icon.gif" alt="HTML" class="skill-icon">
+            <div class="skill-info">
+                <div class="skill-name">HTML</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <img src="images/skills-icon.gif" alt="CSS" class="skill-icon">
+            <div class="skill-info">
+                <div class="skill-name">CSS</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <img src="images/skills-icon.gif" alt="JavaScript" class="skill-icon">
+            <div class="skill-info">
+                <div class="skill-name">Javascript</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <img src="images/skills-icon.gif" alt="Энергетики" class="skill-icon">
+            <div class="skill-info">
+                <div class="skill-name">Мастер по распитию энергетиков</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Проекты -->
+            <div class="projects">
+                <h2 class="projects__title">Лучшие проекты</h2>
+                
+                <div class="project">
+                    <div class="project__content">
+                        <div class="project__icon">
+                            <img src="images/experience1.jpg" alt="Проект 1">
+                        </div>
+                        <div class="project__text">
+                            <h3 class="project__title">Проект 1</h3>
+                            <p class="project__desc">+ ⁺ ✦ ´ ¸*+ ⁺ ✦ ´ ¸*+ ⁺ ✦ ´ ¸*</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project__content">
+                        <div class="project__icon">
+                            <img src="images/experience2.jpg" alt="Проект 2">
+                        </div>
+                        <div class="project__text">
+                            <h3 class="project__title">Проект 2</h3>
+                            <p class="project__desc">✦ — ‧₊˚✦ — ‧₊˚✦ — ‧₊˚✦ — ‧₊˚✦</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project__content">
+                        <div class="project__icon">
+                            <img src="images/experience3.jpg" alt="Проект 3">
+                        </div>
+                        <div class="project__text">
+                            <h3 class="project__title">Проект 3</h3>
+                            <p class="project__desc">ˏˋ°•*⁀➷ ˋ ♡ˏˋ°•*⁀➷ ˋ ♡ˏˋ°•*⁀➷ ˋ ♡</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">© 2025 Контакты</div>
+    </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const profile = document.getElementById('profile');
+    const title = profile.querySelector('.profile__title');
+    const gifContainer = profile.querySelector('.profile__header-gif');
+
+    const toggleExpanded = () => {
+        profile.classList.toggle('profile--expanded');
+    };
+
+    title.addEventListener('click', toggleExpanded);
+    gifContainer.addEventListener('click', toggleExpanded);
+});
+</script>
+
+</body>
+</html>

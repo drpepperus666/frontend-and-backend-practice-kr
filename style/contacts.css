@@ -1,0 +1,464 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ КОНТАКТОВ (БЭМ + CSS-переменные) ===== */
+
+.contacts {
+  margin-bottom: var(--space-xl);
+}
+
+.contacts__title {
+  font-size: var(--font-size-h1);
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  font-weight: 300;
+}
+
+/* ===== ФОРМА ВНУТРИ КОНТАКТНОГО БЛОКА ===== */
+.contact--form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/form-bg.jpg'); /* ← можно использовать любую подложку, например ту же email-bg.jpg */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.contact__form {
+  width: 100%;
+  margin-top: var(--space-s);
+}
+
+.contact__form .form-group {
+  margin-bottom: var(--space-s);
+}
+
+.contact__form .form-group label {
+  display: block;
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  font-family: inherit;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contact__form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Заголовок "Напишите нам" — чёрный с белой обводкой */
+.contact--form .contact__label {
+  color: rgb(255, 255, 255);
+  text-shadow:
+    -1px -5px 0 rgb(0, 0, 0),
+     1px -5px 0 rgb(0, 0, 0),
+    -1px  1px 0 rgb(0, 0, 0),
+     1px  1px 0 rgb(0, 0, 0),
+     0px  1px 0 rgb(0, 0, 0),
+     0px -5px 0 rgb(0, 0, 0),
+     1px  5px 0 rgb(0, 0, 0),
+    -1px  5px 0 rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 var(--space-s) 0;
+}
+
+/* Подписи полей формы (Имя, Email, Сообщение) — тоже чёрные с белой обводкой */
+.contact--form .contact__form .form-group label {
+  color: rgb(255, 255, 255);
+  text-shadow:
+    -1px -2px 0 rgb(0, 0, 0),
+     1px -1px 0 rgb(0, 0, 0),
+    -1px  2px 0 rgb(0, 0, 0),
+     1px  2px 0 rgb(0, 0, 0);
+  /* Можно чуть тоньше обводку для мелкого текста */
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* ===== ЗАГОЛОВОК С GIF (как в новостях) ===== */
+.contacts__header {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 120px;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  margin: 0 auto var(--space-xl) auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contacts__header-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contacts__header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-h1);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  z-index: 2;
+}
+
+/* ===== ОСНОВНОЙ КОНТАКТ (EMAIL, АДРЕС) ===== */
+.contact {
+  position: relative;
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+  margin-bottom: var(--space-m);
+  border-left: 5px solid var(--color-primary);
+  border-right: 5px solid var(--color-primary);
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  /* Убираем градиент — он будет заменён на фон + оверлей */
+}
+
+/* Убираем общий ::before — он больше не нужен */
+
+/* Фон для email */
+.contact--email::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/email-bg.jpg'); /* ← твоя картинка для email */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Фон для адреса */
+.contact--address::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/address-bg.jpg'); /* ← твоя картинка для адреса */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Чёрный оверлей (общий для обоих) */
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* 50% прозрачности */
+  z-index: 1;
+}
+
+/* Отключаем полупрозрачный оверлей для формы */
+.contact--form::after {
+  display: none;
+}
+
+/* Контент поверх всего */
+.contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+.contact__row {
+  display: flex;
+  align-items: center; /* Выравнивание по центру */
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.contact__icon {
+  width: 80px; /* Увеличили иконку */
+  height: 80px; /* Увеличили иконку */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-s);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.contact__text {
+  flex: 1;
+  padding: var(--space-s) 0; /* Добавили вертикальные отступы */
+}
+
+.contact__label {
+  font-size: 22px; /* Увеличили шрифт */
+  margin: 0 0 var(--space-s) 0; /* Увеличили отступ */
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.contact__value {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.9); /* почти белый */
+  line-height: 1.6;
+  font-size: 18px; /* Увеличили шрифт */
+}
+
+/* ===== СЕТКА ДОПОЛНИТЕЛЬНЫХ КОНТАКТОВ ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-m);
+  margin: var(--space-xl) 0;
+}
+
+.contact-grid__item {
+  background:
+    /* Звёзды — повторяются, заполняют всё */
+    url('../images/stars-bg.jpg') repeat,
+    /* Чёрный подложка на случай, если изображение не загрузится */
+    #000;
+  color: white; /* ← весь текст внутри — белый */
+  padding: var(--space-s);
+  border-radius: var(--radius-s);
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  background-size: auto; /* или 200px 200px, если хочешь контролировать размер */
+}
+
+/*.contact-grid__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/splashes.WEBP');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}*/
+
+.contact-grid__item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-grid__label {
+  font-size: var(--font-size-h3);
+  margin: 0 0 var(--space-xs) 0;
+  color: rgb(228, 228, 228); /* ← белый */
+  font-weight: 600;
+}
+
+.contact-grid__value {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5); /* ← белый с прозрачностью */
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+}
+
+/* ===== КНОПКА НА СТРАНИЦЕ КОНТАКТОВ ===== */
+.contacts__button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: var(--space-xl) auto 0;
+}
+
+/* ===== СТИЛИ МОДАЛЬНОГО ОКНА (уже частично в styles.css) ===== */
+.modal {
+  border: none;
+  border-radius: var(--radius-l);
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  max-width: 520px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-bg);
+}
+
+.modal__header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #333333 100%);
+  color: white;
+  padding: var(--space-m);
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  margin: 0;
+  text-align: center;
+}
+
+.modal__header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.modal__content {
+  padding: var(--space-m);
+}
+
+.modal__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid #eee;
+}
+
+/* ===== ФОРМА (уже в styles.css, но оставим для ясности) ===== */
+.form-group {
+  margin-bottom: var(--space-m);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: var(--transition-default);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ===== КНОПКИ В МОДАЛКЕ ===== */
+.btn {
+  padding: var(--space-s) var(--space-m);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  transition: var(--transition-default);
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #333333 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.required {
+  color: #ff1900;
+}
+
+.contact-grid__link {
+  color: var(--color-text-secondary); /* или другой базовый цвет */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-grid__link:hover {
+  color: var(--color-accent); /* красный из :root */
+}
+
+
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 600px) {
+  .contact {
+    min-height: auto;
+    padding: var(--space-m);
+  }
+  
+  .contact__row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact__icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--space-s);
+  }
+
+  .contact__label {
+    font-size: 20px;
+  }
+
+  .contact__value {
+    font-size: 16px;
+  }
+
+  .modal__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
