@@ -171,51 +171,40 @@
 
 /* ===== МОДАЛЬНОЕ ОКНО (ИСПРАВЛЕННАЯ ВЕРСИЯ) ===== */
 
-/* ===== МОДАЛЬНОЕ ОКНО — ЧЁРНОЕ, ПО ЦЕНТРУ, ПО КОНТЕНТУ ===== */
-
-/* ===== МОДАЛЬНОЕ ОКНО (ИСПРАВЛЕННАЯ ВЕРСИЯ) ===== */
-
 .modal {
-  display: none; /* По умолчанию скрыто */
+  display: none;
   position: fixed;
   z-index: 1000;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  /* УБЕРИТЕ display: flex отсюда */
-}
-
-/* Добавьте класс для открытого состояния */
-.modal--open {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
+  overflow: auto;
+  background-color: #000; /* Черный фон */
 }
 
 .modal__content {
-  background-color: #000000;
-  color: #fff;
-  max-width: 700px;
+  background-color: transparent; /* Прозрачный фон контента */
+  margin: 5% auto;
+  padding: 0; /* Убираем отступы */
+  border-radius: 0; /* Убираем скругления */
   width: 90%;
-  padding: 24px;
-  border-radius: 12px;
+  max-width: 700px;
   position: relative;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-  box-sizing: border-box;
+  color: #fff; /* Белый текст */
+  box-shadow: none; /* Убираем тень */
 }
-
-/* Остальные стили остаются без изменений */
 
 .modal__close {
   color: #aaa;
+  float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
+  z-index: 1001; /* Чтобы закрыть был поверх всех элементов */
 }
 
 .modal__close:hover,
@@ -257,7 +246,7 @@
 /* Стили для названия проекта */
 .modal__project-title {
   position: absolute;
-  top: 29%; /* Позиционирование по вертикали. Подберите значение, чтобы текст попал в прямоугольное поле. 31 */
+  top: 31%; /* Позиционирование по вертикали. Подберите значение, чтобы текст попал в прямоугольное поле. 31 */
   left: 32%; /* Позиционирование по горизонтали. Подберите значение, чтобы текст попал в прямоугольное поле. 35 / 40 */
   font-size: 30px; /* 24 */
   font-weight: 600;
@@ -271,6 +260,35 @@
 
 /* ===== ВТОРАЯ РАМКА — КВАДРАТНАЯ, ПОЛОВИНА ШИРИНЫ ===== */
 
+.modal__description-square {
+  position: relative;
+  width: 50%; /* Половина ширины модального окна */
+  padding-top: 50%; /* Делает элемент квадратным (соотношение 1:1) */
+  margin-top: 20px;
+  margin-left: auto; /* ← Это сдвигает блок вправо */
+  /* margin-right: 0; — не обязательно, auto слева + width = выравнивание по правому краю */
+}
+
+.modal__description-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.modal__description-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 .modal__description-text {
   font-size: 16px;
   line-height: 1.5;
@@ -281,117 +299,19 @@
 }
 
 /* Уникальное позиционирование для первого проекта */
-.modal__square-content--1 .modal__description-text {
+.modal__description-content--1 .modal__description-text {
   position: absolute;
-  top: 25%;   /* Вертикальное положение */
-  left: 20%;  /* Горизонтальное положение */
-  width: 60%; /* Ширина текстового блока */
+  top: 25%;   /* ← Подбери под свою рамку  30*/
+  left: 20%;  /* ← Подбери под свою рамку  10*/
+  width: 60%; /* ← Ограничивает ширину текста внутри квадрата  60*/
 }
 
 /* Уникальное позиционирование для второго проекта */
-.modal__square-content--2 .modal__description-text {
+.modal__description-content--2 .modal__description-text {
   position: absolute;
-  top: 25%;   /* Вертикальное положение */
-  left: 20%;  /* Горизонтальное положение */
-  width: 60%; /* Ширина текстового блока */
-}
-
-/* ===== КОНТЕЙНЕР ДЛЯ ДВУХ КВАДРАТНЫХ РАМОК ===== */
-.modal__squares-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 20px;
-  width: 100%;
-}
-
-/* Общие стили для обеих квадратных рамок */
-.modal__image-square,
-.modal__description-square {
-  position: relative;
-  width: 48%;
-  padding-top: 48%; /* Делает элемент квадратным */
-  flex-shrink: 0;
-}
-
-/* Общие стили для изображений рамок */
-.modal__square-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  z-index: 2; /* Рамка поверх фото */
-}
-
-/* Общие стили для контента внутри рамок */
-.modal__square-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Контент под рамкой */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10%; /* Уменьшил отступы для фото */
-  box-sizing: border-box;
-}
-
-/* Стили для фото внутри левой рамки - ПОД рамкой */
-.modal__square-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px; /* Уменьшил радиус для лучшего отображения под рамкой */
-  display: block;
-  /* Черные границы */
-  border: 3px solid #000000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box; /* Чтобы граница не увеличивала размер */
-}
-
-/* Увеличиваем фото чтобы оно заполнило пространство под рамкой */
-.modal__square-content--image .modal__square-photo {
-  width: 110%; /* Немного увеличиваем чтобы заполнить под рамкой */
-  height: 110%;
-  margin: -5%; /* Компенсируем увеличение */
-}
-
-/* Стили для текста в правой рамке */
-.modal__description-text {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-  text-align: justify;
-  word-wrap: break-word;
-  width: 100%;
-  margin: 0;
-}
-
-/* Альтернативный вариант - если нужно точное позиционирование фото */
-.modal__square-content--image {
-  padding: 8%; /* Еще меньше отступы для фото */
-}
-
-/* Уменьшение размера фото в левой рамке */
-.modal__square-content--image .modal__square-photo {
-  width: 70% !important;
-  height: 70% !important;
-  margin: 0 !important;
-  border: 2px solid #b8b8b8;
-  margin-left: 50%;
-}
-
-/* Передвижение фото в правую часть левой рамки */
-
-.modal__square-content--image .modal__square-photo {
-  margin-left: 5% !important;
-  margin-top: 20% !important;
+  top: 25%;   /* ← Подбери под свою рамку */
+  left: 20%;  /* ← Подбери под свою рамку */
+  width: 60%; /* ← Ограничивает ширину текста внутри квадрата */
 }
 
 

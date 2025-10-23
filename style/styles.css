@@ -1,6 +1,7 @@
 /* ===== СИСТЕМА CSS ПЕРЕМЕННЫХ ===== */
 :root {
   /* Цвета */
+  --color-scheme: light dark;
   --color-bg: #ffffff;
   --color-text: #000000;
   --color-text-secondary: #666666;
@@ -51,12 +52,44 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
+/* ===== ДОСТУПНОСТЬ: skip-link и фокус ===== */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -100%;
+  z-index: 10000;
+  padding: 0.5rem 0.75rem;
+  background: #111;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  inset-block-start: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+a,
+button,
+input,
+textarea {
+  outline-offset: 2px;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
-  min-height: 100vh;
   position: relative;
   font-size: var(--font-size-base);
 }
@@ -92,6 +125,8 @@ body::after {
   margin: 0 auto;
   background-color: var(--color-bg);
   min-height: 100vh;
+  min-height: 100svh;
+    min-height: 100dvh;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
@@ -108,6 +143,7 @@ body::after {
   color: white;
   text-align: center;
   padding: var(--space-l);
+  padding-top: calc(var(--space-l) + env(safe-area-inset-top));
   font-size: var(--font-size-h1);
   font-weight: 300;
   letter-spacing: 2px;
@@ -157,11 +193,6 @@ body::after {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
   border-color: #fff;
-}
-
-.nav__link:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
@@ -512,6 +543,7 @@ body::after {
   color: white;
   text-align: center;
   padding: var(--space-l);
+  padding-bottom: calc(var(--space-l) + env(safe-area-inset-bottom));
   margin-top: var(--space-xxl);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -635,7 +667,16 @@ body::after {
   letter-spacing: 2px;
 }
 
+/* Крупные цели на устройствах с pointer:coarse (мобильники) */
+@media (pointer: coarse) {
 
+  a,
+    button,
+    .nav__link {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+    }
+  }
 
 /* ===== АДАПТИВНОСТЬ ===== */
 /* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
@@ -680,6 +721,8 @@ body::after {
 
   .project__content {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     gap: var(--space-m);
   }
@@ -688,6 +731,9 @@ body::after {
     align-self: center;
   }
 
+        .project__text {
+          text-align: center;
+        }
   .header {
     padding: 20px 16px;
     font-size: 24px;
@@ -696,5 +742,15 @@ body::after {
   .footer {
     padding: 20px 16px;
     font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .project__desc--center {
+    text-align: center !important;
+    margin: 0 auto;
+  }
+
+  .project__desc {
+    text-align: center;
   }
 }

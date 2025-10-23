@@ -2,134 +2,205 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практики — Портфолио</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Проекты — Портфолио</title>
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="../style/projects.css">
 </head>
 <body>
+    <!-- Ссылка для клавиатурной навигации -->
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <div class="page-container">
-        <div class="header">
-  <div class="header__logo-text">
-    <img src="../images/logo.gif" alt="Фото Анастасии" class="header__logo">
-    <span class="header__name">Шаломеенко Анастасия</span>
-  </div>
-</div>
-        
-        <div class="nav">
+        <header class="header">
+            <div class="header__logo-text">
+                <img src="../images/logo.gif" alt="Логотип" class="header__logo">
+                <span class="header__name">Шаломеенко Анастасия</span>
+            </div>
+        </header>
+
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
-                <li class="nav__item"><a class="nav__link nav__link--active" href="projects.html">Проекты</a></li>
-                <li class="nav__item"><a class="nav__link" href="diary.html">Дневник</a></li>
-                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
-        </div>
-        
-        <div class="content">
-            <div class="projects__header">
-                <img src="../images/practices-header-title.gif" alt="Заголовок практик" class="projects__header-gif">
-                <h1 class="projects__header-title">Мои проекты</h1>
+        </nav>
+
+        <main id="main" class="content">
+            <!-- Заголовок -->
+            <div class="practices__header">
+                <img src="../images/practices-header-title.gif" alt="Заголовок практик" class="practices__header-gif">
+                <h1 class="practices__header-title">Мои практики</h1>
             </div>
 
-            <!-- Сетка проектов -->
-            <div class="projects-grid">
-                <!-- Проект 1 -->
-                <div class="project-card" data-project="1">
-                    <img src="../images/practice1.jpg" alt="myawesome-project" class="project-card__image">
-                    <h3 class="project-card__title">myawesome-project</h3>
-                    <p class="project-card__desc">Адаптивный сайт с HTML, CSS, JS. Акцент на семантике и доступности.</p>
+            <!-- Практика 1 -->
+            <div class="practice" style="background-image: url('../images/practice-bg1.jpg');">
+                <div class="practice__content">
+                    <div class="practice__text">
+                        <h2 class="practice__title">myawesome-project</h2>
+                        <div class="practice__desc-box">
+                            <div class="practice__divider">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                            </div>
+                            <p class="practice__description">
+                                Во время этой практики я разрабатывала адаптивный сайт с использованием HTML, CSS и JavaScript. Особое
+                                внимание уделялось семантике, доступности и совместимости.
+                            </p>
+                        </div>
+                        <a href="#" class="practice__link modal-trigger" data-modal="modal1">Подробнее...</a>
+                    </div>
+                    <div class="practice__image">
+                        <img src="../images/practice1.jpg" alt="Практика 1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Практика 2 -->
+            <div class="practice" style="background-image: url('../images/practice-bg2.jpg');">
+                <div class="practice__content">
+                    <div class="practice__image">
+                        <img src="../images/practice2.jpg" alt="Практика 2">
+                    </div>
+                    <div class="practice__text">
+                        <h2 class="practice__title">frontend-and-backend-practice</h2>
+                        <div class="practice__desc-box">
+                            <div class="practice__divider">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                                <img src="../images/divider.gif" alt="" class="practice__divider-img">
+                            </div>
+                            <p class="practice__description">
+                                Создание многостраничного сайта-портфолио, построенного с использованием семантических HTML5-тегов и
+                                современных методов верстки на основе CSS Grid и Flexbox.
+                            </p>
+                        </div>
+                        <a href="#" class="practice__link modal-trigger" data-modal="modal2">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">© 2025 Портфолио. Все права защищены.</footer>
+    </div>
+
+    <!-- Модальное окно 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+
+            <div class="modal__frame-container">
+                <img src="../images/title-frame2.png" alt="Рамка названия" class="modal__frame-img">
+                <div class="modal__frame-content modal__frame-content--1">
+                    <h2 class="modal__project-title">myawesome-project</h2>
+                </div>
+            </div>
+
+            <div class="modal__squares-container">
+                <div class="modal__image-square">
+                    <img src="../images/photo-frame.png" alt="Рамка для фото" class="modal__square-img">
+                    <div class="modal__square-content modal__square-content--image">
+                        <img src="../images/telek1.gif" alt="Фото проекта" class="modal__square-photo">
+                    </div>
                 </div>
 
-                <!-- Проект 2 -->
-                <div class="project-card" data-project="2">
-                    <img src="../images/practice2.jpg" alt="frontend-and-backend-practice" class="project-card__image">
-                    <h3 class="project-card__title">frontend-and-backend-practice</h3>
-                    <p class="project-card__desc">Многостраничное портфолио с семантическим HTML5 и CSS Grid/Flexbox.</p>
+                <div class="modal__description-square">
+                    <img src="../images/description-frame.png" alt="Квадратная рамка описания" class="modal__square-img">
+                    <div class="modal__square-content modal__square-content--1">
+                        <p class="modal__description-text" style="text-align: justify;">
+                            Во время этой практики я разрабатывала адаптивный сайт с использованием HTML, CSS и JavaScript. Особое внимание уделялось семантике, доступности и совместимости.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="footer">© 2025 Контакты</div>
     </div>
 
-    <!-- Модальное окно -->
-    <!-- Модальное окно -->
-<div id="modal" class="modal" style="display: none;">
-  <div class="modal__content">
-    <span class="modal__close">&times;</span>
-    <h2 class="modal__title" id="modal-title">Заголовок</h2>
-    <img id="modal-image" class="modal__image" src="" alt="">
-    <p class="modal__description" id="modal-description">Описание...</p>
-    <div class="modal__links">
-      <a id="modal-live-link" class="modal__link" target="_blank" rel="noopener">Смотреть онлайн</a>
+    <!-- Модальное окно 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+
+            <div class="modal__frame-container">
+                <img src="../images/title-frame2.png" alt="Рамка названия" class="modal__frame-img">
+                <div class="modal__frame-content modal__frame-content--2">
+                    <h2 class="modal__project-title">frontend-and-backend-practice</h2>
+                </div>
+            </div>
+
+            <div class="modal__squares-container">
+                <div class="modal__image-square">
+                    <img src="../images/photo-frame.png" alt="Рамка для фото" class="modal__square-img">
+                    <div class="modal__square-content modal__square-content--image">
+                        <img src="../images/telek2.gif" alt="Фото проекта" class="modal__square-photo">
+                    </div>
+                </div>
+
+                <div class="modal__description-square">
+                    <img src="../images/description-frame.png" alt="Квадратная рамка описания" class="modal__square-img">
+                    <div class="modal__square-content modal__square-content--2">
+                        <p class="modal__description-text">
+                            Создание сайта-портфолио, построенного с использованием семантических HTML5-тегов и современных методов верстки на основе CSS Grid и Flexbox.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <script>
-// Данные проектов
-const projectsData = {
-  1: {
-    title: "myawesome-project",
-    description: "Первая попытка создания сайта с использованием HTML, CSS и Javacript. Во время этой практики особое внимание уделялось семантике, доступности и совместимости.",
-    image: "../images/project1-modal.jpg", // ← замените на своё изображение
-    liveLink: "https://drpepperus666.github.io/myawesome-project/"
-  },
-  2: {
-    title: "frontend-and-backend-practice",
-    description: "Вторая попытка создания многостраничного сайта-портфолио, построенного с использованием семантических HTML5-тегов и современных методов верстки на основе CSS Grid и Flexbox.",
-    image: "../images/project2-modal.jpg", // ← замените на своё изображение
-    liveLink: "https://drpepperus666.github.io/frontend-and-backend-practice/"
-  }
-};
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.modal-trigger');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.modal__close');
 
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDescription = document.getElementById("modal-description");
-const modalImage = document.getElementById("modal-image");
-const modalLiveLink = document.getElementById("modal-live-link");
-const closeModal = document.querySelector(".modal__close");
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.classList.add('modal--open');
+                    }
+                });
+            });
 
-// Открытие модального окна
-document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const id = card.dataset.project;
-    const project = projectsData[id];
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const modal = this.closest('.modal');
+                    if (modal) {
+                        modal.classList.remove('modal--open');
+                    }
+                });
+            });
 
-    if (!project) return;
+            modals.forEach(modal => {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        this.classList.remove('modal--open');
+                    }
+                });
+            });
 
-    modalTitle.textContent = project.title;
-    modalDescription.textContent = project.description;
-    modalImage.src = project.image;
-    modalImage.alt = project.title;
-    modalLiveLink.href = project.liveLink;
-
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // блокировка прокрутки фона
-  });
-});
-
-// Закрытие по крестику
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "";
-});
-
-// Закрытие по клику вне контента
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  }
-});
-
-// Закрытие по нажатию Esc
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.style.display === "flex") {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  }
-});
-</script>
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        modal.classList.remove('modal--open');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
